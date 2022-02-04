@@ -1,0 +1,9 @@
+.container {
+  /* border: 1px solid black; */
+  /* height: 100px; */
+}
+.imgContainer {
+  height: 100px;
+  /* width: 400px; */
+  position: relative;
+}
