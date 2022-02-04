@@ -5,7 +5,7 @@ import Featured from "../components/Featured";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const array = ["item1", "2", "3", "4", "5"];
+  const array = ["/img/11.png", "/img/12.png"];
   return (
     <div className={styles.container}>
       <Head>

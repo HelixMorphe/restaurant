@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "../styles/Carousel.module.css";
 function Carousel({ arrayItems }) {
   const [click, setClick] = useState("");
@@ -32,9 +33,14 @@ function Carousel({ arrayItems }) {
     setTransition("none");
     setTranform(0);
     setTimeout(() => {
-      setTransition("all 0.5s ease-in");
+      setTransition("all 1s ease-in-out");
     });
   };
+  useEffect(() => {
+    setInterval(() => {
+      handleNext();
+    }, 6000);
+  }, []);
   return (
     <div className={styles.Container}>
       <div className={styles.Carousel}>
@@ -42,22 +48,31 @@ function Carousel({ arrayItems }) {
           onTransitionEnd={transitionEnd}
           className={styles.Slider}
           style={{
-            transform: `translate(${-20 * transform}%)`,
+            transform: `translate(${-(100 / items.length) * transform}%)`,
             transition: `${transition}`,
+            width: `${100 * items.length}%`,
           }}
         >
           {items.map((item, index) => (
-            <section key={index}>{item}</section>
+            <section key={index} className={styles.imgContainer}>
+              <Image
+                src={item}
+                alt={`featured ${index}`}
+                layout="fill"
+                objectFit="contain"
+                // objectPosition="center"
+              />
+            </section>
           ))}
         </div>
-        <div className={styles.Controls}>
+        {/* <div className={styles.Controls}>
           <span className={styles.arrowLeft} onClick={handlePrev}>
             Prev
           </span>
           <span className={styles.arrowRight} onClick={handleNext}>
             Next
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
