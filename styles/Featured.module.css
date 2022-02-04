@@ -1,0 +1,35 @@
+.container {
+  /* border: 2px solid green; */
+  height: calc(100vh - 100px);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  /* width: 500vw; */
+  height: 100%;
+  display: flex;
+  transition: all 0.5s ease-in-out;
+  background-color: rebeccapurple;
+}
+.imgContainer {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+.arrowContainer {
+  z-index: 99;
+  position: absolute;
+  width: 10%;
+  height: 20%;
+  /* border: 2px solid red; */
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  /* font-size: 4; */
+  cursor: pointer;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
